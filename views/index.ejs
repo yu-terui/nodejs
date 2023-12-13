@@ -6,7 +6,7 @@
         <link type="text/css" rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div class="search">
+        <div class="container">
             <input type="text" id="textBox">
             <button id="searchBtn">ID検索</button>
         </div>
@@ -27,7 +27,7 @@
                         <td>
                             <%= users[i].email %>
                         </td>
-                        <td id="editBtn"><a href="/edit/<%= users[i].id %>">更新</a></td>
+                        <td id="updateBtn"><a href="/edit/<%= users[i].id %>">更新</a></td>
                         <td id="deleteBtn"><a href="/delete/<%= users[i].id %>">削除</a></td>
                     </tr>
                     <% } %>
@@ -37,6 +37,9 @@
                         <tr class="tr"></tr>
                         <tr class="tr"></tr>
             </table>
+            <div class="container">
+                <p id="addUser"><a href="/create">ユーザーの追加</a></p>
+            </div>
             <!--こちらに基礎課題で言われてる内容を記述しましょう。ここから-->
             <!-- <p id="textTag"></p>
             <p id="textTag2"></p>
