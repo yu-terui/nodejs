@@ -1,20 +1,42 @@
-.container{
+.container {
   width: 600px;
   margin: auto;
 }
 table {
-  border: 1px solid #000;
+  border-spacing: 10px;
+  padding:10px;
+}
+tr {
+  border-bottom: 1px solid #555;
 }
 th,
 td {
   font-weight: normal;
-  padding: 5px 10px;
 }
-input{margin: 10px 0;padding: 10px;}
-button {
+td {
+  margin: 10px;
+}
+input {
+  margin: 10px 0;
+  padding: 10px;
+}
+button,
+#editBtn,
+#deleteBtn {
   padding: 10px 20px;
-  background: lightblue;
-  border: 1px solid #000;
+  background: lightslategray;
+  color: white;
+  border: 1px solid #555;
   border-radius: 3px;
   cursor: pointer;
+}
+button:hover,
+#editBtn:hover,
+#deleteBtn:hover {
+  opacity: 0.7;
+}
+#editBtn a,
+#deleteBtn a {
+  color: white;
+  text-decoration: none;
 }
