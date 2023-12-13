@@ -80,6 +80,29 @@
             // table(2);
             // table(3);
             // table(4);
+            //実務課題01
+            let userList = JSON.parse('<%= JSON.stringify(users) %>'.replace(/&#34;/g, '"'));
+            let textBox = document.getElementById("textBox");
+            let searchBtn = document.getElementById("searchBtn");
+            searchBtn.addEventListener('click', function() {
+                function table(k){
+                    let tr = document.querySelectorAll(".tr");
+                    let td1 = document.createElement("td");
+                    let td2 = document.createElement("td");
+                for (let i = 0; i < userList.length; i++) {
+                    td1.innerHTML = `name:${userList[k].name}`;
+                    td2.innerHTML = `email:${userList[k].email}`;
+                if (textBox.value == userList[k].id) {
+                    tr[k].appendChild(td1);
+                    tr[k].appendChild(td2);
+                }}
+            }
+            table(0);
+            table(1);
+            table(2);
+            table(3);
+            table(4);
+        });
         </script>
     </body>
 </html>
