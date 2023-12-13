@@ -6,21 +6,36 @@
         <link type="text/css" rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div class="container">
+        <div class="search">
             <input type="text" id="textBox">
             <button id="searchBtn">ID検索</button>
+        </div>
+        <div class="container">
             <table>
                 <tr>
                     <th>名前</th>
                     <th>email</th>
-                    <th>更新</th>
-                    <th>削除</th>
+                    <!-- <th>更新</th>
+                    <th>削除</th> -->
                 </tr>
-                <tr class="tr"></tr>
-                <tr class="tr"></tr>
-                <tr class="tr"></tr>
-                <tr class="tr"></tr>
-                <tr class="tr"></tr>
+                <!-- 実務課題02 -->
+                <% for(let i=0; i < users.length; i++){ %>
+                    <tr>
+                        <td>
+                            <%= users[i].name %>
+                        </td>
+                        <td>
+                            <%= users[i].email %>
+                        </td>
+                        <td id="editBtn"><a href="/edit/<%= users[i].id %>">更新</a></td>
+                        <td id="deleteBtn"><a href="/delete/<%= users[i].id %>">削除</a></td>
+                    </tr>
+                    <% } %>
+                        <tr class="tr"></tr>
+                        <tr class="tr"></tr>
+                        <tr class="tr"></tr>
+                        <tr class="tr"></tr>
+                        <tr class="tr"></tr>
             </table>
             <!--こちらに基礎課題で言われてる内容を記述しましょう。ここから-->
             <!-- <p id="textTag"></p>
@@ -84,25 +99,26 @@
             let userList = JSON.parse('<%= JSON.stringify(users) %>'.replace(/&#34;/g, '"'));
             let textBox = document.getElementById("textBox");
             let searchBtn = document.getElementById("searchBtn");
-            searchBtn.addEventListener('click', function() {
-                function table(k){
+            searchBtn.addEventListener('click', function () {
+                function table(k) {
                     let tr = document.querySelectorAll(".tr");
                     let td1 = document.createElement("td");
                     let td2 = document.createElement("td");
-                for (let i = 0; i < userList.length; i++) {
-                    td1.innerHTML = `name:${userList[k].name}`;
-                    td2.innerHTML = `email:${userList[k].email}`;
-                if (textBox.value == userList[k].id) {
-                    tr[k].appendChild(td1);
-                    tr[k].appendChild(td2);
-                }}
-            }
-            table(0);
-            table(1);
-            table(2);
-            table(3);
-            table(4);
-        });
+                    for (let i = 0; i < userList.length; i++) {
+                        td1.innerHTML = `name:${userList[k].name}`;
+                        td2.innerHTML = `email:${userList[k].email}`;
+                        if (textBox.value == userList[k].id) {
+                            tr[k].appendChild(td1);
+                            tr[k].appendChild(td2);
+                        }
+                    }
+                }
+                table(0);
+                table(1);
+                table(2);
+                table(3);
+                table(4);
+            });
         </script>
     </body>
 </html>
