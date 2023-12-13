@@ -1,8 +1,20 @@
-table {
+.container{
+  width: 600px;
   margin: auto;
+}
+table {
   border: 1px solid #000;
 }
-th,td {
+th,
+td {
   font-weight: normal;
   padding: 5px 10px;
+}
+input{margin: 10px 0;padding: 10px;}
+button {
+  padding: 10px 20px;
+  background: lightblue;
+  border: 1px solid #000;
+  border-radius: 3px;
+  cursor: pointer;
 }
