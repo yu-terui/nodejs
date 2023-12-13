@@ -53,6 +53,19 @@ app.use(express.static('assets'));
   // ];
   // 空のオブジェクト、nameとemailを5セット 配列の何番目のどのオブジェクト
   // ==========ここまでの範囲で書くようにしましょう。==========
+  // 51行目あたりに追加
+app.post('/', (req, res) => {
+  const sql = "INSERT INTO users SET ?"
+  con.query(sql, req.body, function(err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+    res.redirect('/');
+  });
+});
+
+app.get('/create', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html/form.html'))
+});
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
     res.render('index', {
